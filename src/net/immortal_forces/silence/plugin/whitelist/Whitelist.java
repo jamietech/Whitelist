@@ -39,7 +39,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -110,7 +109,7 @@ public class Whitelist extends JavaPlugin
     // Register our events
     PluginManager pm = getServer().getPluginManager();
 
-    pm.registerEvent(Event.Type.PLAYER_LOGIN, m_PlayerListner, Priority.Low, this);
+    pm.registerEvents(m_PlayerListner, this);
     //pm.registerEvent(Event.Type.PLAYER_COMMAND, m_PlayerListner, Priority.Monitor, this);
 
     //Create folders and files

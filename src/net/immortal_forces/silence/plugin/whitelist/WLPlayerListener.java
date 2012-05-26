@@ -22,10 +22,12 @@
 package net.immortal_forces.silence.plugin.whitelist;
 
 //import org.bukkit.event.player.PlayerChatEvent;
-import org.bukkit.event.player.PlayerListener;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-public class WLPlayerListener extends PlayerListener
+public class WLPlayerListener implements Listener
 {
   private final Whitelist m_Plugin;
   
@@ -34,7 +36,7 @@ public class WLPlayerListener extends PlayerListener
     m_Plugin = instance;
   }
 
-  @Override
+  @EventHandler(priority = EventPriority.LOW)
   public void onPlayerLogin(PlayerLoginEvent event)
   {
     if ( m_Plugin.isWhitelistActive() )
